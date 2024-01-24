@@ -4,7 +4,7 @@ export function ChildrenLayout({ children }: { children: React.ReactNode }) {
   const { fixed } = useMyContext();
   return (
     <div
-      className={`flex flex-col w-full transition-all ${fixed ? 'ml-80' : 'ml-16'}`}
+      className={`flex flex-col w-full transition-all ${fixed ? 'ml-80' : 'ml-24'}`}
     >
       {children}
     </div>
