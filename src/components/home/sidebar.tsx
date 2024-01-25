@@ -55,7 +55,7 @@ export function Sidebar() {
     <div
       onMouseEnter={() => (fixed ? true : setHover(true))}
       onMouseLeave={() => (fixed ? true : setHover(false))}
-      className={`fixed p-4 z-10  ${fixed ? 'w-80 left-0 h-screen top-0 rounded-l-none' : `${hover ? 'w-80 left-0 h-screen top-0 rounded-l-none' : 'w-16 left-4 h-[95vh] top-[2.5vh]'}`} bg-zinc-50 rounded-lg transition-all`}
+      className={`fixed p-4 z-10  ${fixed ? 'w-75 left-0 h-screen top-0 rounded-l-none' : `${hover ? 'w-75 left-0 h-screen top-0 rounded-l-none' : 'w-16 left-4 h-[95vh] top-[2.5vh]'}`} bg-zinc-50 rounded-lg transition-all`}
     >
       <SidebarUI.Content>
         <div className="flex flex-col items-center justify-start gap-4 text-center">

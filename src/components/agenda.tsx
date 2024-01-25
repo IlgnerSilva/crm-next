@@ -9,6 +9,7 @@ import { DayClickEventHandler } from 'react-day-picker';
 
 export function Agenda() {
   const [feriados, setFeriados] = useState<IFeriados[]>([]);
+  const [booked, setBooked] = useState(false);
   const dataFeriado: Date[] = [];
   useEffect(() => {
     fetch('/api/agenda').then((res) =>
@@ -18,8 +19,12 @@ export function Agenda() {
     );
   }, []);
 
-  const handleDayClick: DayClickEventHandler = (day, modifiers) => {
-    console.log(day);
+  const handleDayClick: DayClickEventHandler = (day) => {
+    feriados.filter((feriado) => {
+      if (feriado.data === moment(day).format('DD/MM/YYYY')) {
+        console.log(feriado.descricao);
+      }
+    });
   };
 
   if (!feriados) {
@@ -35,9 +40,9 @@ export function Agenda() {
       <Calendar
         locale={ptBR}
         onDayClick={handleDayClick}
-        modifiers={{ disabled: dataFeriado }}
+        modifiers={{ booked: dataFeriado }}
         modifiersStyles={{
-          disabled: { border: '1px solid black', color: 'green', opacity: 1 },
+          booked: { border: '1px solid black', color: 'green', opacity: 1 },
         }}
       />
       {/* {feriados.map((feriado) => (

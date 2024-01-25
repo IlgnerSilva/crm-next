@@ -3,4 +3,5 @@ export interface IFeriados {
   nome: string;
   municipio: string;
   uf: string;
+  descricao: string;
 }
