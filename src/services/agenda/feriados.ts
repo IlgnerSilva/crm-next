@@ -11,6 +11,7 @@ export async function getFeriados() {
       municipio: true,
       uf: true,
       descricao: true,
+      tipo: true,
     },
   });
 

@@ -1,15 +1,14 @@
 import { Clock } from '@/components/clock';
 import { Agenda } from '@/components/agenda';
+import { Card } from '@/components/ui/card';
 
 export default function HomeCRM() {
   return (
-    <div className="w-full grid grid-cols-12 gap-4 grid-rows-10 bg-slate-300 justify-between">
-      <div className="col-span-8 bg-zinc-50 ">
-        <Agenda />
-      </div>
-      <div className="col-span-3 bg-zinc-50 row-start-auto">
+    <div className="w-full grid grid-cols-12 gap-4 auto-rows-max rounded-t-lg">
+      <Card className="col-span-8 row-span-1 bg-zinc-50">
         <Clock />
-      </div>
+      </Card>
+      <Agenda />
     </div>
   );
 }
