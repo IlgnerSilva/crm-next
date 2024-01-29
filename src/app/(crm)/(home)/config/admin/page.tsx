@@ -1,17 +1,17 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Form } from '@/components/ui/form';
 
 export default function ConfigAdmin() {
   return (
     <div className="w-full grid grid-cols-12 gap-4 auto-rows-max rounded-t-lg">
-      <Tabs defaultValue="account" className="w-[400px]">
+      <Tabs defaultValue="account" className="col-span-12 mx-auto">
         <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="conta">Minha Conta</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>
-          <TabsTrigger value="email">Email</TabsTrigger>
+          <TabsTrigger value="email">Calendário</TabsTrigger>
+          <TabsTrigger value="Colaboradores">Colaboradores</TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
-          Make changes to your account here.
-        </TabsContent>
+        <TabsContent value="conta"></TabsContent>
         <TabsContent value="password">Change your password here.</TabsContent>
       </Tabs>
     </div>
