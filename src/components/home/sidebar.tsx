@@ -1,7 +1,7 @@
 'use client';
 
 import { useMyContext } from '@/providers/context/layoutContext';
-import { Lock, Unlock } from 'lucide-react';
+import { Lock, Unlock, Settings, Home } from 'lucide-react';
 import { SidebarUI, IMenuNavigation } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -16,32 +16,22 @@ import {
 const items: IMenuNavigation[] = [
   {
     title: 'Dashboard',
-    icon: <Lock width={20} />,
+    icon: <Home width={20} />,
     children: [
       {
         title: 'Home',
-        link: '/home',
-        icon: <Lock width={20} />,
-      },
-      {
-        title: 'Settings',
-        link: '/settings',
-        icon: <Lock width={20} />,
+        link: '/',
+        icon: <Home width={20} />,
       },
     ],
   },
   {
-    title: 'Settings',
-    icon: <Lock width={20} />,
+    title: 'Configurações',
+    icon: <Settings width={20} />,
     children: [
       {
-        title: 'Home',
-        link: '/home',
-        icon: <Lock width={20} />,
-      },
-      {
-        title: 'Settings',
-        link: '/settings',
+        title: 'Admin',
+        link: '/config/admin',
         icon: <Lock width={20} />,
       },
     ],

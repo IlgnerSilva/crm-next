@@ -1,9 +1,14 @@
-import { prisma } from '@/lib/prismaClient';
+import prisma from '@/lib/db';
 
 export async function getFeriados() {
   const feriados = await prisma.feriados.findMany({
     where: {
-      OR: [{ tipo: 'NACIONAL' }, { municipio: 'Ribeirão Preto' }],
+      OR: [
+        { municipio: 'Ribeirão Preto' },
+        { tipo: 'NACIONAL' },
+        { tipo: 'FACULTATIVO' },
+        { tipo: 'ESTADUAL', uf: 'SP' },
+      ],
     },
     select: {
       data: true,

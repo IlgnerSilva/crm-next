@@ -89,7 +89,7 @@ export function Agenda() {
   );
 }
 
-function DescricaoAgenda(dados: IFeriados) {
+function DescricaoAgenda(dados: IFeriados | undefined) {
   if (dados) {
     const { data, nome, uf, municipio, tipo, descricao } = dados;
     return (
@@ -104,8 +104,8 @@ function DescricaoAgenda(dados: IFeriados) {
           <CardHeader>
             <CardTitle>{nome}</CardTitle>
             <CardDescription className="flex flex-col gap-2">
-              <span>
-                Feriado {tipo === 'NACIONAL' ? 'Nacional' : municipio}
+              <span className="font-bold uppercase">
+                Feriado {tipo === 'MUNICIPAL' ? 'Ribeirão Preto' : tipo}
               </span>
               <span>{data}</span>
               <span>{descricao}</span>
