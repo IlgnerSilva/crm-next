@@ -1,12 +1,14 @@
 import { googleIA } from '@/lib/google-ia';
-import auth from '@/middleware';
 import { NextApiRequest, NextApiResponse } from 'next';
+// import auth from '@/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  const session = await auth();
-  if (!session?.user) {
-    return res.status(401).json({ message: 'É necessário se autorizar!' });
-  }
+export async function POST(req: NextRequest, res: NextResponse) {
+  // const session = await auth();
+  // if (!session?.user) {
+  //   return res.status(401).json({ message: 'É necessário se autorizar!' });
+  // }
+  const { prompt } = await req.json();
   const model = googleIA.getGenerativeModel({ model: 'gemini-pro' });
   const chat = await model.startChat({
     history: [],
@@ -14,7 +16,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       maxOutputTokens: 256,
     },
   });
-  const { prompt } = await JSON.parse(req.body);
   const result = (await chat.sendMessage(prompt)).response;
-  return res.status(200).json({ message: result.text() });
+  return new Response(JSON.stringify({ message: result.text() }));
+  // return res.status(200).json({ message: result.text() });
 }

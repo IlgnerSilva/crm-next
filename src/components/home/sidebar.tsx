@@ -1,7 +1,7 @@
 'use client';
 
 import { useMyContext } from '@/providers/context/layoutContext';
-import { Lock, Unlock, Settings, Home } from 'lucide-react';
+import { Lock, Unlock, Settings, Home, Bot, BarChart2 } from 'lucide-react';
 import { SidebarUI, IMenuNavigation } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -22,6 +22,17 @@ const items: IMenuNavigation[] = [
         title: 'Home',
         link: '/',
         icon: <Home width={20} />,
+      },
+    ],
+  },
+  {
+    title: 'IA Generative',
+    icon: <Bot width={20} />,
+    children: [
+      {
+        title: 'Assistant',
+        link: '/ia-generate',
+        icon: <BarChart2 width={20} />,
       },
     ],
   },
